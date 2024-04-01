@@ -1,0 +1,162 @@
+<title>Tinder Swipe</title>
+<main>
+    <section>
+        <header>
+            <img src="./photos/tinder-logo.webp" alt="Tinder Logo"/>
+        </header>
+        <div class="cards">
+            <article>
+                <img src="./photos/1.webp" alt="Red hair girl 27 years"/>
+                <h2>Leila<span>27</span></h2>
+                <div class="choice nope">NOPE</div>
+                <div class="choice like">LIKE</div>
+            </article>
+            <article>
+                <img src="./photos/2.webp" alt="Handsome man 26 years"/>
+                <h2>Alex<span>26</span></h2>
+                <div class="choice nope">NOPE</div>
+                <div class="choice like">LIKE</div>
+            </article>
+        </div>
+        <footer>
+            <button  class="is-undo " aria-label="undo"></button>
+            <button  class="is-remove is-big" aria-label="remove"></button>
+            <button  class="is-star" aria-label="star"></button>
+            <button  class="is-big is-fav" aria-label="fav"></button>
+            <button  class="is-zap" aria-label="zap"> </button>
+        </footer>
+    </section>
+</main>
+
+<style>
+    *, *::before, *::after{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+        overflow: hidden;
+        user-select: none;
+        background: #e5e5e5;
+        zoom: 0.5;
+    }
+    main{
+        background: url("./photos/iphone.webp") no-repeat;
+        width: 320px;
+        height: 640px;
+        background-size: contain;
+        display: flex;
+        filter: drop-shadow(0 0 1px red);
+    }
+    section{
+        background-color: #f6f6f6;
+        width: 100%;
+        display: flex;
+        border-radius: 32px;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+        padding: 10px 6px;
+        margin: 24px;
+        gap: 24px;
+    }
+    header{
+        display: flex;
+        justify-content: center;
+        & img{
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    footer{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 12px;
+        justify-content: center;
+        align-items: center;
+        padding: 0 24px;
+        & button{
+            background: url(./photos/tinder-icons.webp) no-repeat;
+            background-position: 0px 0px;
+            background-size: 175px;
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            border: 0;
+            cursor: pointer;
+            transition: scale .3s ease;
+            &:hover{
+                scale: 1.4;
+            }
+            &.is-big{
+                width: 48px;
+                height: 48px;
+                background-size: 250px;
+            }
+            &.is-undo{
+                background-position: -140px;
+            }
+            &.is-remove{
+                background-position: -150px;
+            }
+            &.is-fav{
+                background-position: -50px;
+            }
+            &.is-star{
+                background-position: -70px;
+            }
+
+        }
+    }
+
+    .cards{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        & article {
+            background: black;
+            box-shadow: 0 0 10px rgba(0, 0,0, .3);
+            cursor: grab;
+            border-radius: 8px;
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            z-index: 2;
+            will-change: transform rotate;
+            & img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+            & h2 {
+                color: white;
+                position: absolute;
+                inset: 0;
+                height: 100%;
+                display: flex;
+                align-items: flex-end ;
+                width: 100%;
+                padding: 16px;
+                z-index: 3;
+                background: linear-gradient(
+                    to top,
+                    #00000088 20%,
+                    transparent 40% );
+            }
+            & span{
+                margin-left: 8px;
+                font-size: 18px;
+                line-height: 1.4;
+                font-weight: 400;
+            }
+        }
+    }
+</style>
